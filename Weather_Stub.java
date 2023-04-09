@@ -123,7 +123,7 @@ public class Weather_Stub{
     
       System.out.println("Avg: "  +  weather + " is " + total / NUM_NUMS);
       System.out.println("Highest  " + weather + " of the week was: "  + max );
-      System.out.println("Lowest " + weather +  "of the week was : " + min );  
+      System.out.println("Lowest " + weather +   "of the week was : " + min );  
     }
 
     private static void exitMessage(){
