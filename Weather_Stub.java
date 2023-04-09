@@ -19,4 +19,8 @@ public class Weather_Stub{
     public static void main(String[] args){
         
     }
+
+    private static void startingPoint(){
+        
+    }
 }
