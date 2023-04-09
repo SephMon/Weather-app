@@ -17,10 +17,48 @@ public class Weather_Stub{
     private static int min = Integer.MAX_VALUE;
     private static int choice;
     public static void main(String[] args){
-        
+        startingPoint();
     }
 
     private static void startingPoint(){
+
+    }
+
+    private static void headerMessage(){
+
+    }
+
+    private static void welcomeMessage(){
+
+    }
+
+    private static int getIntput(){
+        return 0;
+    }
+
+    private static int getChoice(){
+        return 0;
+    }
+
+    private static int checkInput(){
+        return 0;
+    }
+
+    private static void checkForOutOfBoundsChoice(){
+
+    }
+
+    private static int getInfo(int values[]){
+        return values[0];
+    }
+
+    private static void printOutInfo(){
         
     }
+
+    private static void exitMessage(){
+
+    }
+
+
 }
