@@ -29,6 +29,14 @@ public class Weather_Stub{
       }
     }
 
+    private static String enterUserName(){
+      return "";
+    }
+
+    private static String enterPassword(){
+      return "";
+    }
+
     private static void headerMessage(){
       System.out.println("**********************");
       System.out.println("*      Login         *");
