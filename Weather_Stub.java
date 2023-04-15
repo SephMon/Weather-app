@@ -9,6 +9,8 @@ public class Weather_Stub{
     private static final String DAYS_OF_THE_WEEK[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     private static boolean keepGoing = true;
     private static final int MAX_LOGIN_ATTEMPTS = 3;
+    private static int nTries = 0;
+    private static int nTriesLeft = 3;
     private static final int NUM_NUMS = 7;
     private static int[] temps = new int[8];
     private static int[] rainFall = new int[8];
@@ -29,6 +31,11 @@ public class Weather_Stub{
       while(keepGoing){
         enterUserName();
         enterPassword();
+        checkIsValid();
+        if(isValidLogin()){
+          getInput();
+        }
+        
       }
     }
 
@@ -36,8 +43,9 @@ public class Weather_Stub{
       System.out.println("Please enter username:");
       userName = scanner.nextLine();
       return userName;
-
     }
+
+
 
     private static String enterPassword(){
       System.out.println("Please enter password: ");
@@ -46,15 +54,33 @@ public class Weather_Stub{
     }
 
     private static boolean isValidLogin(){
-      return true;
+      return userName.equalsIgnoreCase(NAME[0]) && password.equalsIgnoreCase(PASS[0]);
     }
 
-    private static void checkForEmptyUsernameAndPassword(String userInfo){
-       
+    private static boolean checkForEmptyUsernameAndPassword(String userInfo){
+       return userInfo.isEmpty();
+    }
+
+    private static boolean checkLengthOfUsernameAndPassword(String nameAndPassLen){
+      return nameAndPassLen.length() < 6;
     }
 
     private static boolean isValidUserNameAndPassword(){
       return true;
+    }
+
+    private static void checkLoginAttempts(){
+      if(nTries >= MAX_LOGIN_ATTEMPTS){
+        keepGoing = false;
+      }
+    }
+
+    private static void checkIsValid(){
+      if(checkForEmptyUsernameAndPassword(userName) || checkForEmptyUsernameAndPassword(password)){
+         System.out.println("Username or password field cannot be empty!");
+      }else if(checkLengthOfUsernameAndPassword(userName) || checkLengthOfUsernameAndPassword(password)){
+        System.out.println("Lenght of fields cannot be less than 6 characters!");
+      }
     }
 
     private static void headerMessage(){
