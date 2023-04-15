@@ -18,6 +18,8 @@ public class Weather_Stub{
     private static int min = Integer.MAX_VALUE;
     private static int choice;
     private static String weather;
+    private static String userName;
+    private static String password;
     public static void main(String[] args){
         startingPoint();
     }
@@ -25,16 +27,34 @@ public class Weather_Stub{
     private static void startingPoint(){
       welcomeMessage();
       while(keepGoing){
-        choice = getInput();
+        enterUserName();
+        enterPassword();
       }
     }
 
     private static String enterUserName(){
-      return "";
+      System.out.println("Please enter username:");
+      userName = scanner.nextLine();
+      return userName;
+
     }
 
     private static String enterPassword(){
-      return "";
+      System.out.println("Please enter password: ");
+      password = scanner.nextLine();
+      return password;
+    }
+
+    private static boolean isValidLogin(){
+      return true;
+    }
+
+    private static void checkForEmptyUsernameAndPassword(String userInfo){
+       
+    }
+
+    private static boolean isValidUserNameAndPassword(){
+      return true;
     }
 
     private static void headerMessage(){
