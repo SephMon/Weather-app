@@ -4,10 +4,11 @@ import java.util.Scanner;
 public class Weather_Stub{
 
     private static Scanner scanner = new Scanner(System.in);
-    private static final String NAME[] = {"gerry"};
-    private static final String PASS[] = {"cat"};
+    private static final String NAME[] = {"gerrys"};
+    private static final String PASS[] = {"catman"};
     private static final String DAYS_OF_THE_WEEK[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     private static boolean keepGoing = true;
+    private static boolean keepGoing2 = false;
     private static final int MAX_LOGIN_ATTEMPTS = 3;
     private static int nTries = 0;
     private static int nTriesLeft = 3;
@@ -33,11 +34,23 @@ public class Weather_Stub{
         enterPassword();
         checkIsValid();
         if(isValidLogin()){
-          getInput();
+          get();
+          //getInput();
+          break;
+        }else{
+          nTries++;
         }
-        
+        checkLoginAttempts();
       }
     }
+
+    private static void get(){
+      while(keepGoing2 == false){
+        choice = getInput();
+      }
+    }
+
+
 
     private static String enterUserName(){
       System.out.println("Please enter username:");
@@ -99,7 +112,7 @@ public class Weather_Stub{
 
     private static int getInput(){
       System.out.println("Enter choice: ");
-      choice = scanner.nextInt();
+      choice = checkInput();
       getChoice();
       return choice;
     }
@@ -118,7 +131,8 @@ public class Weather_Stub{
         getInfo(humidity);
         break;
 
-        case 0: keepGoing = false;
+        case 0: keepGoing2 = true;
+        //keepGoing = false;
         exitMessage();
 
         default:
@@ -183,6 +197,9 @@ public class Weather_Stub{
     private static void exitMessage(){
       System.out.println("Exiting......");  
     }
+
+    
+    
 
 
 }
