@@ -34,8 +34,8 @@ public class Weather_Stub{
         enterPassword();
         checkIsValid();
         if(isValidLogin()){
-          get();
-          //getInput();
+          headerMessage();
+          setUp();
           break;
         }else{
           nTries++;
@@ -44,22 +44,18 @@ public class Weather_Stub{
       }
     }
 
-    private static void get(){
+    private static void setUp(){
       while(keepGoing2 == false){
         choice = getInput();
       }
     }
-
-
-
+    
     private static String enterUserName(){
       System.out.println("Please enter username:");
       userName = scanner.nextLine();
       return userName;
     }
-
-
-
+    
     private static String enterPassword(){
       System.out.println("Please enter password: ");
       password = scanner.nextLine();
@@ -77,14 +73,14 @@ public class Weather_Stub{
     private static boolean checkLengthOfUsernameAndPassword(String nameAndPassLen){
       return nameAndPassLen.length() < 6;
     }
-
-    private static boolean isValidUserNameAndPassword(){
-      return true;
-    }
-
+    
     private static void checkLoginAttempts(){
       if(nTries >= MAX_LOGIN_ATTEMPTS){
         keepGoing = false;
+      }else{
+        wrongLoginDetailsEntered();
+        nTriesLeft--;
+        attemptsLeft();
       }
     }
 
@@ -132,7 +128,6 @@ public class Weather_Stub{
         break;
 
         case 0: keepGoing2 = true;
-        //keepGoing = false;
         exitMessage();
 
         default:
@@ -194,8 +189,16 @@ public class Weather_Stub{
       System.out.println("Lowest " + weather +   "of the week was : " + min );  
     }
 
+    private static void attemptsLeft(){
+      System.out.println("You have " + nTriesLeft + " left. ");
+    }
+
     private static void exitMessage(){
       System.out.println("Exiting......");  
+    }
+
+    private static void wrongLoginDetailsEntered(){
+      System.out.println("WRONG LOGIN DETAILS ENTERED!");
     }
 
     
